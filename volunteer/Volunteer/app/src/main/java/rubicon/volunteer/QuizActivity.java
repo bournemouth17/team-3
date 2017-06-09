@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class QuizActivity extends AppCompatActivity {
 
     private SwipeFlingAdapterView flingContainer;
+    private int noOfQuestionsAnswered = 0;
+    private int noRight = 0;
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i;
@@ -43,7 +45,6 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                Log.d("LIST", "removed object!");
                 al.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -54,11 +55,14 @@ public class QuizActivity extends AppCompatActivity {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 System.out.println("left");
+                noOfQuestionsAnswered++;
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
                 System.out.println("right");
+                noRight++;
+                noOfQuestionsAnswered++;
             }
 
             @Override

@@ -15,23 +15,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <View
+    <TextView
         android:id="@+id/item_swipe_left_indicator"
         android:alpha="0"
-        android:layout_width="20dp"
+        android:layout_width="50dp"
         android:layout_height="20dp"
         android:layout_margin="10dp"
-        tools:text="False"
-        android:background="#A5F" />
+        android:text="True"
+        android:background="#5AF" />
 
-    <View
+    <TextView
         android:id="@+id/item_swipe_right_indicator"
         android:alpha="0"
-        android:layout_width="20dp"
+        android:layout_width="50dp"
         android:layout_height="20dp"
         android:layout_margin="10dp"
         android:layout_gravity="right"
-        tools:text="true"
-        android:background="#5AF" />
+        android:text="False"
+        android:background="#A5F" />
 
 </FrameLayout>
