@@ -3,4 +3,5 @@
 ## Authors
 
 - Atul Anand
-- Darryl butcher
+- Darryl Butcher
+- Manav Gupta
