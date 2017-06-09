@@ -1,4 +1,4 @@
-# Team 3
+# Team Rubicon
 
 ## Authors
 
