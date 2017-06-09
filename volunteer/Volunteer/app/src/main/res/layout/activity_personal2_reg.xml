@@ -17,13 +17,11 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/fName"
+                android:id="@+id/editText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="First Name" />
-
+                android:inputType="textEmailAddress" />
         </TableRow>
 
         <TableRow
@@ -31,12 +29,11 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/sName"
+                android:id="@+id/editText3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Surname" />
+                android:inputType="phone" />
         </TableRow>
 
         <TableRow
@@ -44,12 +41,11 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/pName"
+                android:id="@+id/editText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Preferred Name" />
+                android:inputType="textPostalAddress" />
         </TableRow>
 
         <TableRow
@@ -57,13 +53,11 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/age"
+                android:id="@+id/editText5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="Age" />
-
+                android:inputType="textPostalAddress" />
         </TableRow>
 
         <TableRow
@@ -72,43 +66,7 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
-            <TextView
-                android:id="@+id/genderText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gender" />
         </TableRow>
-
-        <RadioGroup
-            android:id="@+id/radioGenderGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:id="@+id/radioMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male" />
-
-            <RadioButton
-                android:id="@+id/radioFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female" />
-
-            <RadioButton
-                android:id="@+id/radioPNTS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Prefer no to say" />
-
-            <RadioButton
-                android:id="@+id/radioOther"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Other" />
-
-        </RadioGroup>
 
         <TableRow
             android:layout_width="match_parent"
