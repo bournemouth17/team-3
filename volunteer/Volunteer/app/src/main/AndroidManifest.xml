@@ -40,7 +40,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".PersonalRegActivity" />
-        <activity android:name=".SelectedEvent"></activity>
+        <activity android:name=".SelectedEvent" />
+        <activity android:name=".TrainingVideo"></activity>
     </application>
 
 </manifest>
