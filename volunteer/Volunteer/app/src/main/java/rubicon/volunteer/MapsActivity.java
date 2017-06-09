@@ -1,18 +1,24 @@
 package rubicon.volunteer;
 
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
+    boolean mLocationPermissionGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +45,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng place = new LatLng(51.2076854, -1.9162612);
+        mMap.addMarker(new MarkerOptions().position(place).title("Marker in Sydney").snippet("This is the description"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
+        mMap.setMinZoomPreference(5);
+        mMap.setOnInfoWindowClickListener(this);
+
     }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Toast.makeText(this, marker.getTitle(),
+                Toast.LENGTH_SHORT).show();
+        System.out.println("qwertyuiop");
+    }
+
 }
