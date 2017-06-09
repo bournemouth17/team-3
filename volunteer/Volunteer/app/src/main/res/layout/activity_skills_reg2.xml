@@ -16,72 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/Question1"
+            <CheckBox
+                android:id="@+id/Interest8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Do you want to work outside?" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/radioYes1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/radioPreferred1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preferred" />
-
-                <RadioButton
-                    android:id="@+id/radioNo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No" />
-
-            </RadioGroup>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/Question2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Do you want to work inside?" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <RadioButton
-                    android:id="@+id/radioYes2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/radioPreferred2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preferred" />
-
-                <RadioButton
-                    android:id="@+id/radioNo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No" />
-
-            </RadioGroup>
+                android:text="Mapping Routes" />
         </TableRow>
 
         <TableRow
@@ -89,10 +28,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest1"
+                android:id="@+id/Interest9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Entry" />
+                android:text="Transporting Supplies/Equipment" />
         </TableRow>
 
         <TableRow
@@ -100,10 +39,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest2"
+                android:id="@+id/Interest10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Answering Phones/Taking Messages" />
+                android:text="Loading/Unloading Vehicles" />
         </TableRow>
 
         <TableRow
@@ -111,10 +50,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest3"
+                android:id="@+id/Interest11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Managing Staff/Volunteer Rotas" />
+                android:text="Packing Boxes" />
         </TableRow>
 
         <TableRow
@@ -122,10 +61,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest4"
+                android:id="@+id/Interest12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Translating" />
+                android:text="Distributing Supplies" />
         </TableRow>
 
         <TableRow
@@ -133,10 +72,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest5"
+                android:id="@+id/Interest13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reception Duties" />
+                android:text="Making Refreshments" />
         </TableRow>
 
         <TableRow
@@ -144,10 +83,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest6"
+                android:id="@+id/Interest14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Information Dissemination" />
+                android:text="Staffing Feeding Stations for Responders" />
         </TableRow>
 
         <TableRow
@@ -155,11 +94,43 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/Interest7"
+                android:id="@+id/Interest15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Information Gathering" />
+                android:text="Cleaning Kit and Equipment" />
+        </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/Interest16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Debris Clean Up" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/Interest17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Helping with Sandbags" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/Interest18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assisting Other Agencies as Required" />
         </TableRow>
 
         <TableRow
@@ -167,7 +138,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnSubmitInterests"
+                android:id="@+id/btnSubmitInterests2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Submit" />
