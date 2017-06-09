@@ -6,11 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by Darryl on 2017-06-09.
+ * Created by Manav on 09/06/2017.
  */
 
-public class MainActivity extends AppCompatActivity {
-
+public class DBHandler {
     public boolean insertData(String fn, String ln, String ka, int age, String gen, String eml, String no, String ad1, String ad2, String pc) throws ClassNotFoundException, SQLException {
         String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
         Class.forName("com.mysql.jdbc.Driver");
@@ -32,4 +31,5 @@ public class MainActivity extends AppCompatActivity {
         statement.execute(query);
         return true;
     }
+
 }
