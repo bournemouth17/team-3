@@ -1,2 +1,5 @@
 # Team 3
-# will win
+
+## Authors
+
+- Atul Anand
