@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Volunteer</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Current Events</string>
 </resources>
