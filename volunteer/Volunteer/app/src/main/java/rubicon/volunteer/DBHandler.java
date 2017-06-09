@@ -35,6 +35,7 @@ public class DBHandler {
             e.printStackTrace();
         }
         return events;
+
     }
 
     public boolean insertData(String fn, String ln, String ka, int age, String gen, String eml, String no, String ad1, String ad2, String pc) throws ClassNotFoundException, SQLException {
