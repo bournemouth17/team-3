@@ -31,8 +31,7 @@ public class SelectedEvent extends AppCompatActivity implements OnMapReadyCallba
         title = b.getString("eventName");
         location = (LatLng) b.get("LatLng");
         description = b.getString("description");
-
-        ((TextView) findViewById(R.id.eventName)).setText(title);
+        setTitle(title);
         ((TextView) findViewById(R.id.description)).setText(description);
 
     }
@@ -50,9 +49,8 @@ public class SelectedEvent extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // Add a marker in Sydney and move the camera
-        LatLng place = new LatLng(51.2076854, -1.9162612);
-        mMap.addMarker(new MarkerOptions().position(place).title("Marker in Sydney").snippet("This is the description"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
+        mMap.addMarker(new MarkerOptions().position(location).title(title).snippet(description));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
         mMap.setMinZoomPreference(5);
     }
 

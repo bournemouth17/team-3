@@ -1,13 +1,8 @@
 package rubicon.volunteer;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,6 +15,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +24,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -43,7 +41,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        try {
+            mMap.setMyLocationEnabled(true);
+        } catch (SecurityException e){
+            e.printStackTrace();
+        }
         // Add a marker in Sydney and move the camera
         LatLng place = new LatLng(51.2076854, -1.9162612);
         mMap.addMarker(new MarkerOptions().position(place).title("Marker in Sydney").snippet("This is the description"));
@@ -62,5 +64,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         startActivity(i);
     }
+
 
 }

@@ -40,8 +40,13 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".PersonalRegActivity" />
+<<<<<<< HEAD
         <activity android:name=".PersonalReg2Activity" />
         <activity android:name=".SelectedEvent"></activity>
+=======
+        <activity android:name=".SelectedEvent" />
+        <activity android:name=".TrainingVideo"></activity>
+>>>>>>> f1b31a7a5fb6e712d60cbafc4d879af322b74efd
     </application>
 
 </manifest>
