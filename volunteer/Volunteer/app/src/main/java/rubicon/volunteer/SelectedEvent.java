@@ -1,35 +1,41 @@
 package rubicon.volunteer;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class SelectedEvent extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    String title;
+    LatLng location;
+    String description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_selected_event);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
+        Bundle b = getIntent().getExtras();
+        title = b.getString("eventName");
+        location = (LatLng) b.get("LatLng");
+        description = b.getString("description");
 
+        ((TextView) findViewById(R.id.eventName)).setText(title);
+        ((TextView) findViewById(R.id.description)).setText(description);
+
+    }
 
     /**
      * Manipulates the map once available.
@@ -43,24 +49,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
         // Add a marker in Sydney and move the camera
         LatLng place = new LatLng(51.2076854, -1.9162612);
         mMap.addMarker(new MarkerOptions().position(place).title("Marker in Sydney").snippet("This is the description"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
         mMap.setMinZoomPreference(5);
-        mMap.setOnInfoWindowClickListener(this);
-
     }
 
-    @Override
-    public void onInfoWindowClick(Marker marker) {
-        Intent i = new Intent(this, SelectedEvent.class);
-        i.putExtra("eventName", marker.getTitle());
-        i.putExtra("description", marker.getSnippet());
-        i.putExtra("LatLng", marker.getPosition());
+    public void backToMap(View view){
+        startActivity(new Intent(this, MapsActivity.class));
+    }
 
-        startActivity(i);
+    public void registerDetails(View view){
+        startActivity(new Intent(this, PersonalRegActivity.class));
     }
 
 }
