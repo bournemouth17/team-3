@@ -6,8 +6,54 @@
     android:layout_height="match_parent"
     tools:context="rubicon.volunteer.TrainingVideo">
 
-    <VideoView
-        android:id="@+id/videoView"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Play"
+                android:onClick="playVideo"
+                />
+
+            <Button
+                android:id="@+id/pause"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pause"
+                android:onClick="pauseVideo"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/goToQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Go To Quiz"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

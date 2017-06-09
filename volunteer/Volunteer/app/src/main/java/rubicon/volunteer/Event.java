@@ -1,6 +1,8 @@
 /**
  * Created by Darryl on 2017-06-09.
  */
+package rubicon.volunteer;
+
 public class Event {
 
     private int eventID;
