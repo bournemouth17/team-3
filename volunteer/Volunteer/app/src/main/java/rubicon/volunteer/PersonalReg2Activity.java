@@ -46,7 +46,7 @@ public class PersonalReg2Activity extends AppCompatActivity{
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
-            }
+        }
         else{
 
             DBHandler db = new DBHandler();
@@ -62,7 +62,9 @@ public class PersonalReg2Activity extends AppCompatActivity{
             i.putExtra("Address1", ((EditText)findViewById(R.id.Address1)).getText().toString());
             i.putExtra("Address2", ((EditText)findViewById(R.id.Address2)).getText().toString());
             i.putExtra("PostCode", ((EditText)findViewById(R.id.PostCode)).getText().toString());*/
+
             // need to send user id to link with the user details
+
             startActivity(i);
         }
     }

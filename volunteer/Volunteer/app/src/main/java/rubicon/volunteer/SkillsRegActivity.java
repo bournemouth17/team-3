@@ -20,5 +20,4 @@ public class SkillsRegActivity extends AppCompatActivity{
         Bundle b = getIntent().getExtras();
 
     }
-
 }
