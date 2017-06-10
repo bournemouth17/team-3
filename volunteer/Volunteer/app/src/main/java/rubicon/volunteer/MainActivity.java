@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goToMaps(View view){
-        startActivity(new Intent(this, TrainingVideo.class));
+        startActivity(new Intent(this, MapsActivity.class));
     }
 
     public void goToPReg(View view){
