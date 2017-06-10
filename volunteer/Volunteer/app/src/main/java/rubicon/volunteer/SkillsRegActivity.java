@@ -112,6 +112,9 @@ public class SkillsRegActivity extends AppCompatActivity{
             i.putExtra("outside", out);
             i.putExtra("inside", in);
             i.putExtra("interests", interests);
+
+            System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
+
             startActivity(i);
         }
     }

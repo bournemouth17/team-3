@@ -79,6 +79,7 @@ public class SkillsReg2Activity extends AppCompatActivity{
             interests += "0";
 
         DBHandler db = new DBHandler();
+        System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
         db.insertSkillsets(userID, out, in, interests);
         startActivity(i);
 

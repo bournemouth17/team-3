@@ -14,7 +14,6 @@ import java.sql.SQLException;
 
 public class PersonalReg2Activity extends AppCompatActivity{
 
-
     String fName;
     String sName;
     String pName;
@@ -38,7 +37,7 @@ public class PersonalReg2Activity extends AppCompatActivity{
 
     protected void submitData(View view) throws ClassNotFoundException, SQLException {
 
-        Intent i = new Intent(this, SkillsRegActivity.class);
+        Intent i = new Intent(this, NOKActivity.class);
 
         if(((EditText)findViewById(R.id.email)).getText().toString().equals("") || ((EditText)findViewById(R.id.phoneNo)).getText().toString().equals("") || ((EditText)findViewById(R.id.Address1)).getText().toString().equals("") || ((EditText)findViewById(R.id.Address2)).getText().toString().equals("") || ((EditText)findViewById(R.id.PostCode)).getText().toString().equals("")){
             Context context = getApplicationContext();
@@ -48,10 +47,16 @@ public class PersonalReg2Activity extends AppCompatActivity{
             toast.show();
         }
         else{
-
-            DBHandler db = new DBHandler();
-            int userID = db.insertData(fName,sName,pName,age,gender,((EditText)findViewById(R.id.email)).getText().toString(),((EditText)findViewById(R.id.phoneNo)).getText().toString(),((EditText)findViewById(R.id.Address1)).getText().toString(),((EditText)findViewById(R.id.Address2)).getText().toString(),((EditText)findViewById(R.id.PostCode)).getText().toString());
-            i.putExtra("UserID", userID);
+            i.putExtra("fName", fName);
+            i.putExtra("sName", sName);
+            i.putExtra("pName", pName);
+            i.putExtra("age", age);
+            i.putExtra("gender", gender);
+            i.putExtra("email", ((EditText)findViewById(R.id.email)).getText().toString());
+            i.putExtra("phone", ((EditText)findViewById(R.id.phoneNo)).getText().toString());
+            i.putExtra("address1", ((EditText)findViewById(R.id.Address1)).getText().toString());
+            i.putExtra("address2", ((EditText)findViewById(R.id.Address2)).getText().toString());
+            i.putExtra("postcode", ((EditText)findViewById(R.id.PostCode)).getText().toString());
             startActivity(i);
         }
     }
