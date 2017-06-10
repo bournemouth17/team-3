@@ -14,27 +14,32 @@ import java.util.ArrayList;
 
 public class DBHandler {
 
-    public boolean insertSkillsets(int UserID, int Outside, int Inside, String intrests){
-        try {
-            String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
-            Statement statement = conn.createStatement();
-            String query="INSERT INTO Interview (ID, Outdoor, Indoor,  ";
-            query+="Dat, Answering, Managing, Translating, Reception, InfoDi, InfoGa, Mapping, ";
-            query+="Transporting, Loading, Packing, Distributing, Making, Staffing, Cleaning,";
-            query+="Debris, Helping, Assisting) VALUES ("+UserID+", "+Outside+ ", "+ Inside;
-            for(int i=0; i<intrests.length(); i++){
-                query+=", "+intrests.charAt(i);
-            }
-            query+=")";
-            statement.execute(query);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public boolean insertSkillsets(final int UserID, final int Outside, final int Inside, final String intrests){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
 
+                try {
+                    String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
+                    Statement statement = conn.createStatement();
+                    String query = "INSERT INTO Interview (ID, Outdoor, Indoor,  ";
+                    query += "Dat, Answering, Managing, Translating, Reception, InfoDi, InfoGa, Mapping, ";
+                    query += "Transporting, Loading, Packing, Distributing, Making, Staffing, Cleaning,";
+                    query += "Debris, Helping, Assisting) VALUES (" + UserID + ", " + Outside + ", " + Inside;
+                    for (int i = 0; i < intrests.length(); i++) {
+                        query += ", " + intrests.charAt(i);
+                    }
+                    query += ")";
+                    statement.execute(query);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         return true;
     }
     
@@ -77,27 +82,41 @@ public class DBHandler {
         return events;
     }
 
-    public int insertData(String fn, String ln, String ka, int age, String gen, String eml, String no, String ad1, String ad2, String pc) throws ClassNotFoundException, SQLException {
-        String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
-        Statement statement = conn.createStatement();
-        String query = "INSERT INTO Volunteers(Forename, Lastname, KnownAs, Age, Gender, Email, PhoneNumber, Address1, Address2, Postcode) VALUES ";
-        query += "(";
-        query += "\"" + fn + "\", ";
-        query += "\"" + ln + "\", ";
-        query += "\"" + ka + "\", ";
-        query += age + ", ";
-        query += "\"" + gen + "\", ";
-        query += "\"" + eml + "\", ";
-        query += "\"" + no + "\", ";
-        query += "\"" + ad1 + "\", ";
-        query += "\"" + ad2 + "\", ";
-        query += "\"" + pc + "\"";
-        query += ")";
-        statement.execute(query);
-        ResultSet rs= statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
-        return rs.getInt(1);
-    }
+    public int insertData(final String fn, final String ln, final String ka, final int age, final String gen, final String eml, final String no,final String ad1, final String ad2, final String pc) {
+        final ArrayList<Integer> a= new ArrayList<>();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
+                    Statement statement = conn.createStatement();
+                    String query = "INSERT INTO Volunteers(Forename, Lastname, KnownAs, Age, Gender, Email, PhoneNumber, Address1, Address2, Postcode) VALUES ";
+                    query += "(";
+                    query += "\"" + fn + "\", ";
+                    query += "\"" + ln + "\", ";
+                    query += "\"" + ka + "\", ";
+                    query += age + ", ";
+                    query += "\"" + gen + "\", ";
+                    query += "\"" + eml + "\", ";
+                    query += "\"" + no + "\", ";
+                    query += "\"" + ad1 + "\", ";
+                    query += "\"" + ad2 + "\", ";
+                    query += "\"" + pc + "\"";
+                    query += ")";
+                    statement.execute(query);
+                    ResultSet rs = statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
+                    a.add(rs.getInt(1));
+                } catch (SQLException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        while(a.size()== 0){
 
+        }
+        return a.get(0);
+    }
 }
