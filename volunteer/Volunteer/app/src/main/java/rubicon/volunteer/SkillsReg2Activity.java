@@ -22,7 +22,9 @@ public class SkillsReg2Activity extends AppCompatActivity{
         userID = b.getInt("userID");
         out = b.getInt("outside");
         in = b.getInt("inside");
-        interests = b.getString("Interests");
+        interests = b.getString("interests");
+
+        System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
     }
 
     public void submitData(View view) {
@@ -82,8 +84,11 @@ public class SkillsReg2Activity extends AppCompatActivity{
             interests += "0";
 
         DBHandler db = new DBHandler();
+
         System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
+
         db.insertSkillsets(userID, out, in, interests);
+        i.putExtra("userID", userID);
         startActivity(i);
 
     }

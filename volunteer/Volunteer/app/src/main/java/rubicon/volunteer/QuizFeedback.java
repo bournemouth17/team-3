@@ -14,11 +14,13 @@ public class QuizFeedback extends AppCompatActivity {
 
     int noOfQuestions;
     int noCorrect;
+    int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_feedback);
         Bundle b = getIntent().getExtras();
+        userID = b.getInt("userID");
         noOfQuestions = b.getInt("noOfQuestions");
         noCorrect = b.getInt("noCorrect");
         ((TextView)findViewById(R.id.quizResults)).setText("You got " + noCorrect + " / " + noOfQuestions);
@@ -34,6 +36,7 @@ public class QuizFeedback extends AppCompatActivity {
 
     public void continuePage(View view){
         Intent i = new Intent(this, UserIDEnd.class);
+        i.putExtra("userID", userID);
         startActivity(i);
     }
 

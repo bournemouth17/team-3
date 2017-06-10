@@ -104,13 +104,12 @@ public class SkillsRegActivity extends AppCompatActivity{
             else
                 interests += "0";
 
-            i.putExtra("ID", userID);
+            i.putExtra("userID", userID);
             i.putExtra("outside", out);
             i.putExtra("inside", in);
             i.putExtra("interests", interests);
 
             System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
-
             startActivity(i);
         }
     }

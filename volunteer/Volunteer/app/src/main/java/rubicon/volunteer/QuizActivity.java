@@ -24,7 +24,7 @@ public class QuizActivity extends AppCompatActivity {
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
 
-
+    int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,8 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
         al = new ArrayList<>();
+        Bundle b = getIntent().getExtras();
+        userID = b.getInt("userID");
         for(int i = 0; i < quizQuestions.length; i++){
             al.add(quizQuestions[i]);
         }
@@ -73,6 +75,7 @@ public class QuizActivity extends AppCompatActivity {
                 // Ask for more data here
                 if(itemsInAdapter == 0){
                     Intent i = new Intent(QuizActivity.this, QuizFeedback.class);
+                    i.putExtra("userID", userID);
                     i.putExtra("noOfQuestions", noOfQuestionsAnswered);
                     i.putExtra("noCorrect", noRight);
                     startActivity(i);

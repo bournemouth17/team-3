@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 public class UserIDEnd extends AppCompatActivity {
 
+    int userID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle b = getIntent().getExtras();
+        userID = b.getInt("userID");
         setContentView(R.layout.activity_user_idend);
-        ((TextView) findViewById(R.id.userID)).setText("Your UserID is ...");
+        ((TextView) findViewById(R.id.userID)).setText("Your UserID is ... " + userID);
     }
 
     public void callPopup(View view) {

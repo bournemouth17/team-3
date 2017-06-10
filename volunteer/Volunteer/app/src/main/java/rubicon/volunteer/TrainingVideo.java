@@ -12,6 +12,7 @@ import android.widget.VideoView;
 public class TrainingVideo extends AppCompatActivity implements MediaPlayer.OnCompletionListener {
 
     VideoView videoView;
+    int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,8 @@ public class TrainingVideo extends AppCompatActivity implements MediaPlayer.OnCo
         setContentView(R.layout.activity_training_video);
         videoView = (VideoView)findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.risk);
-
+        Bundle b = getIntent().getExtras();
+        userID = b.getInt("userID");
         videoView.setVideoURI(uri);
         videoView.start();
         videoView.setOnCompletionListener(this);
@@ -42,6 +44,8 @@ public class TrainingVideo extends AppCompatActivity implements MediaPlayer.OnCo
     }
 
     public void goToQuiz(View view){
-        startActivity(new Intent(this, QuizActivity.class));
+        Intent i = new Intent(this, QuizActivity.class);
+        i.putExtra("userID", userID);
+        startActivity(i);
     }
 }
