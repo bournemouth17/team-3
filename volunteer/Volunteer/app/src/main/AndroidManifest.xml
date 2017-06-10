@@ -40,18 +40,12 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".PersonalRegActivity" />
-<<<<<<< HEAD
         <activity android:name=".PersonalReg2Activity" />
-        <activity android:name=".SelectedEvent"></activity>
-=======
+        <activity android:name=".SkillsRegActivity" />
         <activity android:name=".SelectedEvent" />
-<<<<<<< HEAD
         <activity android:name=".TrainingVideo" />
-        <activity android:name=".QuizActivity"></activity>
-=======
-        <activity android:name=".TrainingVideo"></activity>
->>>>>>> f1b31a7a5fb6e712d60cbafc4d879af322b74efd
->>>>>>> 6b87ce9717b4125ac75e3193fce198c6431f44cf
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".QuizFeedback"></activity>
     </application>
 
 </manifest>

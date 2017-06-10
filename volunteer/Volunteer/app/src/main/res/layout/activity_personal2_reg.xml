@@ -17,11 +17,12 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:hint="Email" />
         </TableRow>
 
         <TableRow
@@ -29,11 +30,12 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/phoneNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:hint="Phone Number" />
         </TableRow>
 
         <TableRow
@@ -41,11 +43,12 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/Address1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                android:hint="Address Line 1" />
         </TableRow>
 
         <TableRow
@@ -53,11 +56,12 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/Address2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                android:hint="Address Line 2" />
         </TableRow>
 
         <TableRow
@@ -66,6 +70,11 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
+            <EditText
+                android:id="@+id/PostCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Postcode" />
         </TableRow>
 
         <TableRow
