@@ -43,16 +43,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        try {
-            mMap.setMyLocationEnabled(true);
-        } catch (SecurityException e){
-            e.printStackTrace();
-        }
         // Add a marker in Sydney and move the camera
         DBHandler db = new DBHandler();
         ArrayList<Event> events = db.getEvents();
+        System.out.println("qertyuiop" + events.size());
         for(Event e : events) {
-            LatLng place = new LatLng(e.getLang(), e.getLat());
+            System.out.println("qertyuiop" + e.getEventName());
+            System.out.println("qertyuiop" + e.getDescription());
+            System.out.println("qertyuiop" + e.getLang());
+            System.out.println("qertyuiop" + e.getLat());
+
+            LatLng place = new LatLng(e.getLat(), e.getLang());
             mMap.addMarker(new MarkerOptions().position(place).title(e.getEventName()).snippet(e.getDescription()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
         }
