@@ -45,7 +45,8 @@
         <activity android:name=".SelectedEvent" />
         <activity android:name=".TrainingVideo" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".QuizFeedback"></activity>
+        <activity android:name=".QuizFeedback" />
+        <activity android:name=".UserIDEnd"></activity>
     </application>
 
 </manifest>
