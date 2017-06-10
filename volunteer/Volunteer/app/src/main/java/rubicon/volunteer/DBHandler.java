@@ -60,9 +60,14 @@ public class DBHandler {
                         System.out.println("FOUND EVENTS");
                         Event ev = new Event();
                         ev.setEventID(rs.getInt(1));
+<<<<<<< HEAD
 
                         ev.setLat(Float.parseFloat(rs.getObject(2).toString()));
                         ev.setLang(Float.parseFloat(rs.getObject(3).toString()));
+=======
+                        ev.setLat((float) rs.getObject(2));
+                        ev.setLang((float) rs.getObject(3));
+>>>>>>> c07191bbba12f9e3e5c85cde85df36a8209f4a35
                         ev.setEventName(rs.getObject(4).toString());
                         ev.setDescription(rs.getObject(5).toString());
                         events.add(ev);
