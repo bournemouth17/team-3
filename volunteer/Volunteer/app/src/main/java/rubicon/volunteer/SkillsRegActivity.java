@@ -35,82 +35,94 @@ public class SkillsRegActivity extends AppCompatActivity{
         View radioButton = radioOutsideGroup.findViewById(radioButtonID);
         int idx = radioOutsideGroup.indexOfChild(radioButton);
         RadioButton r = (RadioButton) radioOutsideGroup.getChildAt(idx);
-        String selectedtext = r.getText().toString();
+        if(radioButtonID != -1){
+            String selectedtext = r.getText().toString();
 
-        RadioGroup radioInsideGroup = ((RadioGroup)findViewById(R.id.radioGroup2));
-        int radioButton2ID = radioInsideGroup.getCheckedRadioButtonId();
-        View radioButton2 = radioInsideGroup.findViewById(radioButton2ID);
-        int idx2 = radioInsideGroup.indexOfChild(radioButton2);
-        RadioButton r2 = (RadioButton) radioInsideGroup.getChildAt(idx2);
-        String selectedtext2 = r2.getText().toString();
+            RadioGroup radioInsideGroup = ((RadioGroup)findViewById(R.id.radioGroup2));
+            int radioButton2ID = radioInsideGroup.getCheckedRadioButtonId();
+            View radioButton2 = radioInsideGroup.findViewById(radioButton2ID);
+            int idx2 = radioInsideGroup.indexOfChild(radioButton2);
+            RadioButton r2 = (RadioButton) radioInsideGroup.getChildAt(idx2);
+            if(radioButton2ID != -1){
+                String selectedtext2 = r2.getText().toString();
 
-        Intent i = new Intent(this, SkillsReg2Activity.class);
+                Intent i = new Intent(this, SkillsReg2Activity.class);
 
-        if(selectedtext.equals("") || selectedtext2.equals("")){
+                if(selectedtext.equals("Yes")){
+                    out = 1;
+                }
+                else if(selectedtext.equals("No")){
+                    out = 0;
+                }
+                else {
+                    out = 2;
+                }
+
+                if(selectedtext2.equals("Yes")){
+                    in = 1;
+                }
+                else if(selectedtext2.equals("No")){
+                    in = 0;
+                }
+                else {
+                    in = 2;
+                }
+
+                String interests = "";
+                if(((CheckBox)findViewById(R.id.Interest1)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest2)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest3)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest4)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest5)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest6)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+                if(((CheckBox)findViewById(R.id.Interest7)).isChecked())
+                    interests += "1";
+                else
+                    interests += "0";
+
+                i.putExtra("userID", userID);
+                i.putExtra("outside", out);
+                i.putExtra("inside", in);
+                i.putExtra("interests", interests);
+
+                System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
+                startActivity(i);
+
+            }
+            else {
+                Context context = getApplicationContext();
+                CharSequence text = "Empty Fields";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+
+        }
+        else {
             Context context = getApplicationContext();
-            CharSequence text = "Empty Choice";
+            CharSequence text = "Empty Fields";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
-        else{
-            if(selectedtext.equals("Yes")){
-                out = 1;
-            }
-            else if(selectedtext.equals("No")){
-                out = 0;
-            }
-            else {
-                out = 2;
-            }
 
-            if(selectedtext2.equals("Yes")){
-                in = 1;
-            }
-            else if(selectedtext2.equals("No")){
-                in = 0;
-            }
-            else {
-                in = 2;
-            }
-
-            String interests = "";
-            if(((CheckBox)findViewById(R.id.Interest1)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest2)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest3)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest4)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest5)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest6)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest7)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-
-            i.putExtra("userID", userID);
-            i.putExtra("outside", out);
-            i.putExtra("inside", in);
-            i.putExtra("interests", interests);
-
-            System.out.println("DATA " + userID + "    " + out + "    " + in + "   " + interests);
-            startActivity(i);
-        }
     }
 }

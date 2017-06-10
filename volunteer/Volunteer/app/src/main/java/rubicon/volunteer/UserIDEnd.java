@@ -21,7 +21,6 @@ public class UserIDEnd extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         userID = b.getInt("userID");
         setContentView(R.layout.activity_user_idend);
-        ((TextView) findViewById(R.id.userID)).setText("Your UserID is ... " + userID);
     }
 
     public void callPopup(View view) {
