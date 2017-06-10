@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,13 +15,16 @@ import java.sql.SQLException;
 
 public class SkillsRegActivity extends AppCompatActivity{
 
+    int userID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skills_reg);
 
-        Bundle b = getIntent().getExtras();
 
+        Bundle b = getIntent().getExtras();
+        // get user id
     }
 
     protected void submitData(View view) {
@@ -49,7 +53,44 @@ public class SkillsRegActivity extends AppCompatActivity{
             toast.show();
         }
         else{
-            // send data
+            String interests = "";
+            if(((CheckBox)findViewById(R.id.Interest1)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest2)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest3)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest4)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest5)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest6)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest7)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+            if(((CheckBox)findViewById(R.id.Interest8)).isChecked())
+                interests += "1";
+            else
+                interests += "0";
+
+            i.putExtra("ID", userID);
+            i.putExtra("outside", selectedtext);
+            i.putExtra("inside", selectedtext2);
+            i.putExtra("interests", interests);
             startActivity(i);
         }
     }

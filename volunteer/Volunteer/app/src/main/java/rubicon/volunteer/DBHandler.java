@@ -14,6 +14,29 @@ import java.util.ArrayList;
 
 public class DBHandler {
 
+    public boolean insertSkillsets(int UserID, int Outside, int Inside, String intrests){
+        try {
+            String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
+            Statement statement = conn.createStatement();
+            String query="INSERT INTO Interview (ID, Outdoor, Indoor,  ";
+            query+="Dat, Answering, Managing, Translating, Reception, InfoDi, InfoGa, Mapping, ";
+            query+="Transporting, Loading, Packing, Distributing, Making, Staffing, Cleaning,";
+            query+="Debris, Helping, Assisting) VALUES ("+UserID+", "+Outside+ ", "+ Inside;
+            for(int i=0; i<intrests.length(); i++){
+                query+=", "+intrests.charAt(i);
+            }
+            query+=")";
+            statement.execute(query);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
     public ArrayList<Event> getEvents(){
         final ArrayList<Event> events= new ArrayList<>();
         final ArrayList<Integer> check= new ArrayList<>();
