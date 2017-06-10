@@ -11,6 +11,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
@@ -47,9 +49,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
         // Add a marker in Sydney and move the camera
-        LatLng place = new LatLng(51.2076854, -1.9162612);
-        mMap.addMarker(new MarkerOptions().position(place).title("Marker in Sydney").snippet("This is the description"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
+        DBHandler db = new DBHandler();
+        ArrayList<Event> events = db.getEvents();
+        for(Event e : events) {
+            LatLng place = new LatLng(e.getLang(), e.getLat());
+            mMap.addMarker(new MarkerOptions().position(place).title(e.getEventName()).snippet(e.getDescription()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
+        }
         mMap.setMinZoomPreference(5);
         mMap.setOnInfoWindowClickListener(this);
 

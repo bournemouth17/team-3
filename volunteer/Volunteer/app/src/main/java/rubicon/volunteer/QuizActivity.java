@@ -1,6 +1,7 @@
 package rubicon.volunteer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,16 +10,19 @@ import android.widget.ArrayAdapter;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuizActivity extends AppCompatActivity {
 
     private SwipeFlingAdapterView flingContainer;
     private int noOfQuestionsAnswered = 0;
     private int noRight = 0;
+    private String[] quizQuestions = {"Safety takes a break", "Eye protection is not needed when drilling", "Flip flops are not suitable footwear", "Gloves and a helmet are needed while operating a sledge hammer", "PPE needs to be worn at all times"};
+    private Boolean[] quizAnswers = {false, false, true, true, false};
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
-    private int i;
 
 
 
@@ -28,15 +32,9 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
         al = new ArrayList<>();
-        al.add("php");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
-
+        for(int i = 0; i < quizQuestions.length; i++){
+            al.add(quizQuestions[i]);
+        }
         arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
 
 
@@ -55,23 +53,31 @@ public class QuizActivity extends AppCompatActivity {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 System.out.println("left");
+                if(quizAnswers[noOfQuestionsAnswered] == false){
+                    noRight++;
+                }
                 noOfQuestionsAnswered++;
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
                 System.out.println("right");
-                noRight++;
+                if(quizAnswers[noOfQuestionsAnswered] == true){
+                    noRight++;
+                }
                 noOfQuestionsAnswered++;
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
-                Log.d("LIST", "notified");
-                i++;
+                if(itemsInAdapter == 0){
+                    Intent i = new Intent(QuizActivity.this, QuizFeedback.class);
+                    i.putExtra("noOfQuestions", noOfQuestionsAnswered);
+                    i.putExtra("noCorrect", noRight);
+                    startActivity(i);
+                    System.out.println("Quiz Ended");
+                }
             }
 
             @Override
