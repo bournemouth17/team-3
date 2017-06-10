@@ -16,15 +16,16 @@ import java.sql.SQLException;
 public class SkillsRegActivity extends AppCompatActivity{
 
     int userID;
+    int out;
+    int in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skills_reg);
 
-
         Bundle b = getIntent().getExtras();
-        // get user id
+        userID = b.getInt("userID");
     }
 
     protected void submitData(View view) {
@@ -43,7 +44,7 @@ public class SkillsRegActivity extends AppCompatActivity{
         RadioButton r2 = (RadioButton) radioInsideGroup.getChildAt(idx2);
         String selectedtext2 = r2.getText().toString();
 
-        Intent i = new Intent(this, PersonalReg2Activity.class);
+        Intent i = new Intent(this, SkillsReg2Activity.class);
 
         if(selectedtext.equals("") || selectedtext2.equals("")){
             Context context = getApplicationContext();
@@ -53,6 +54,26 @@ public class SkillsRegActivity extends AppCompatActivity{
             toast.show();
         }
         else{
+            if(selectedtext.equals("Yes")){
+                out = 1;
+            }
+            else if(selectedtext.equals("No")){
+                out = 0;
+            }
+            else {
+                out = 2;
+            }
+
+            if(selectedtext2.equals("Yes")){
+                in = 1;
+            }
+            else if(selectedtext2.equals("No")){
+                in = 0;
+            }
+            else {
+                in = 2;
+            }
+
             String interests = "";
             if(((CheckBox)findViewById(R.id.Interest1)).isChecked())
                 interests += "1";
@@ -88,8 +109,8 @@ public class SkillsRegActivity extends AppCompatActivity{
                 interests += "0";
 
             i.putExtra("ID", userID);
-            i.putExtra("outside", selectedtext);
-            i.putExtra("inside", selectedtext2);
+            i.putExtra("outside", out);
+            i.putExtra("inside", in);
             i.putExtra("interests", interests);
             startActivity(i);
         }
