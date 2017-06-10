@@ -68,16 +68,13 @@ public class Main {
         try { //<>//
             url = new URL(desired);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-             //connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
+             connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
 
             connection.setRequestMethod("GET");
 
             connection.setReadTimeout(15*1000);
             connection.connect();
   
-      int responseCode = connection.getResponseCode();
-    System.out.println("\nSending 'GET' request to URL : " + url);
-    System.out.println("Response Code : " + responseCode);
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             sb = new StringBuilder();
             

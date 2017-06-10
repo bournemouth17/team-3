@@ -48,7 +48,7 @@ public class PersonalReg2Activity extends AppCompatActivity{
 
         Intent i = new Intent(this, NOKActivity.class);
 
-        if(((EditText)findViewById(R.id.email)).getText().toString().equals("") || ((EditText)findViewById(R.id.phoneNo)).getText().toString().equals("") || ((EditText)findViewById(R.id.Address1)).getText().toString().equals("") || ((EditText)findViewById(R.id.Address2)).getText().toString().equals("") || ((EditText)findViewById(R.id.PostCode)).getText().toString().equals("")){
+        if(((EditText)findViewById(R.id.email)).getText().toString().equals("") || ((EditText)findViewById(R.id.phoneNo)).getText().toString().equals("")){
             Context context = getApplicationContext();
             CharSequence text = "Empty Fields";
             int duration = Toast.LENGTH_SHORT;
