@@ -1,0 +1,40 @@
+import java.io.*;
+import java.sql.*;
+import java.util.Scanner;
+ 
+/**
+ * Created by Darryl on 2017-06-10.
+ */
+public class Main {
+ 
+    public static void main(String[] args) throws FileNotFoundException {
+        Main rfid = new Main();
+    }
+ 
+    public Main() throws FileNotFoundException {
+        Scanner in = new Scanner(new File("/Users/Manav/Documents/codeforgood_part2/team-3/armband/auth_read_write/processing_pde/id.txt"));
+        String id = in.next();
+        in.close();
+        try {
+            if (id != "") {
+                String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
+                Class.forName("com.mysql.jdbc.Driver");
+
+                Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
+                Statement statement = conn.createStatement();
+                String query = "UPDATE EventCheck Set Checkout=\"" + new java.sql.Date(System.currentTimeMillis()) + "\" WHERE RFID = " + id ;
+                System.out.println(query);
+                statement.execute(query);
+                //PrintWriter writer = new PrintWriter("/id.txt", "UTF-8");
+                //writer.println("");
+                //writer.close();
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+       
+    }
+}
