@@ -50,21 +50,8 @@ public class PersonalReg2Activity extends AppCompatActivity{
         else{
 
             DBHandler db = new DBHandler();
-            db.insertData(fName,sName,pName,age,gender,((EditText)findViewById(R.id.email)).getText().toString(),((EditText)findViewById(R.id.phoneNo)).getText().toString(),((EditText)findViewById(R.id.Address1)).getText().toString(),((EditText)findViewById(R.id.Address2)).getText().toString(),((EditText)findViewById(R.id.PostCode)).getText().toString());
-
-            /*i.putExtra("fName", fName);
-            i.putExtra("sName", sName);
-            i.putExtra("pName", pName);
-            i.putExtra("age", age);
-            i.putExtra("gender", gender);
-            i.putExtra("email", ((EditText)findViewById(R.id.email)).getText().toString());
-            i.putExtra("phoneNo", ((EditText)findViewById(R.id.phoneNo)).getText().toString());
-            i.putExtra("Address1", ((EditText)findViewById(R.id.Address1)).getText().toString());
-            i.putExtra("Address2", ((EditText)findViewById(R.id.Address2)).getText().toString());
-            i.putExtra("PostCode", ((EditText)findViewById(R.id.PostCode)).getText().toString());*/
-
-            // need to send user id to link with the user details
-
+            int userID = db.insertData(fName,sName,pName,age,gender,((EditText)findViewById(R.id.email)).getText().toString(),((EditText)findViewById(R.id.phoneNo)).getText().toString(),((EditText)findViewById(R.id.Address1)).getText().toString(),((EditText)findViewById(R.id.Address2)).getText().toString(),((EditText)findViewById(R.id.PostCode)).getText().toString());
+            i.putExtra("UserID", userID);
             startActivity(i);
         }
     }

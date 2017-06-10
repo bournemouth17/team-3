@@ -34,6 +34,7 @@ public class DBHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return true;
     }
     
@@ -76,7 +77,7 @@ public class DBHandler {
         return events;
     }
 
-    public boolean insertData(String fn, String ln, String ka, int age, String gen, String eml, String no, String ad1, String ad2, String pc) throws ClassNotFoundException, SQLException {
+    public int insertData(String fn, String ln, String ka, int age, String gen, String eml, String no, String ad1, String ad2, String pc) throws ClassNotFoundException, SQLException {
         String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
@@ -95,7 +96,8 @@ public class DBHandler {
         query += "\"" + pc + "\"";
         query += ")";
         statement.execute(query);
-        return true;
+        ResultSet rs= statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
+        return rs.getInt(1);
     }
 
 }
