@@ -50,19 +50,19 @@ public class DBHandler {
             @Override
             public void run() {
                 try {
-                    String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_rubicon";
+                    String url = "jdbc:mysql://74.220.219.118:3306/kkmonlee_artisan";
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
                     Statement statement = conn.createStatement();
-                    String query = "SELECT * FROM Events";
+                    String query = "SELECT * FROM events";
                     ResultSet rs = statement.executeQuery(query);
                     while (rs.next()) {
                         System.out.println("FOUND EVENTS");
                         Event ev = new Event();
                         ev.setEventID(rs.getInt(1));
-                        ev.setEventName(rs.getObject(2).toString());
-                        ev.setLat((float) rs.getObject(3));
-                        ev.setLang((float) rs.getObject(4));
+                        ev.setLat((float) rs.getObject(2));
+                        ev.setLang((float) rs.getObject(3));
+                        ev.setEventName(rs.getObject(4).toString());
                         ev.setDescription(rs.getObject(5).toString());
                         events.add(ev);
                     }
