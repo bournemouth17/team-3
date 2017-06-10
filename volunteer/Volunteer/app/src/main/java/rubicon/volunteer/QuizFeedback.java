@@ -32,5 +32,9 @@ public class QuizFeedback extends AppCompatActivity {
         startActivity(new Intent(this, TrainingVideo.class));
     }
 
+    public void continuePage(View view){
+        startActivity(new Intent(this, TrainingVideo.class));
+    }
+
 
 }

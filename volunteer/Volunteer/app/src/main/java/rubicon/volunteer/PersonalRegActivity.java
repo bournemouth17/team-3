@@ -18,7 +18,7 @@ public class PersonalRegActivity extends AppCompatActivity{
         setContentView(R.layout.activity_personal_reg);
     }
 
-    protected void submitData(View view) {
+    public void submitData(View view) {
 
         RadioGroup radioGenderGroup = ((RadioGroup)findViewById(R.id.radioGenderGroup));
         int radioButtonID = radioGenderGroup.getCheckedRadioButtonId();

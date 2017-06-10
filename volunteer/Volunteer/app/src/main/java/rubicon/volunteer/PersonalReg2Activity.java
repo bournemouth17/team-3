@@ -35,7 +35,7 @@ public class PersonalReg2Activity extends AppCompatActivity{
         System.out.println(fName + " " + sName + " " + pName + " " + age + " " + gender);
     }
 
-    protected void submitData(View view) throws ClassNotFoundException, SQLException {
+    public void submitData(View view) throws ClassNotFoundException, SQLException {
 
         Intent i = new Intent(this, NOKActivity.class);
 

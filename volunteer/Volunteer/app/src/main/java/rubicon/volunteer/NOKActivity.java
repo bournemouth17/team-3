@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class NOKActivity extends AppCompatActivity{
@@ -26,13 +24,13 @@ public class NOKActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_NOK);
+        setContentView(R.layout.activity_nok);
 
         Bundle b = getIntent().getExtras();
         fName = b.getString("fName");
         sName = b.getString("sName");
         pName = b.getString("pName");
-        age = Integer.parseInt(b.getString("age"));
+        age = b.getInt("age");
         gender = b.getString("gender");
         email = b.getString("email");
         phoneNo = b.getString("phone");
@@ -41,7 +39,7 @@ public class NOKActivity extends AppCompatActivity{
         PostCode = b.getString("postcode");
     }
 
-    protected void submitData(View view) {
+    public void submitData(View view) {
 
         Intent i = new Intent(this, SkillsRegActivity.class);
 
@@ -53,7 +51,6 @@ public class NOKActivity extends AppCompatActivity{
             toast.show();
         }
         else{
-            ((EditText)findViewById(R.id.fName)).getText().toString();
             DBHandler db = new DBHandler();
             int userID = db.insertData(fName, sName, pName, age, gender, email, phoneNo, Address1, Address2, PostCode, ((EditText)findViewById(R.id.NOKName)).getText().toString(), ((EditText)findViewById(R.id.relation)).getText().toString(), ((EditText)findViewById(R.id.Phone)).getText().toString());
             i.putExtra("userID", userID);

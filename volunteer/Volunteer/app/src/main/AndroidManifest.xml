@@ -42,6 +42,8 @@
         <activity android:name=".PersonalRegActivity" />
         <activity android:name=".PersonalReg2Activity" />
         <activity android:name=".SkillsRegActivity" />
+        <activity android:name=".SkillsReg2Activity" />
+        <activity android:name=".NOKActivity" />
         <activity android:name=".SelectedEvent" />
         <activity android:name=".TrainingVideo" />
         <activity android:name=".QuizActivity" />

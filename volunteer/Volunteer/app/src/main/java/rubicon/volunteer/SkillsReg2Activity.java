@@ -20,13 +20,12 @@ public class SkillsReg2Activity extends AppCompatActivity{
 
         Bundle b = getIntent().getExtras();
         userID = b.getInt("userID");
-        out = Integer.parseInt(b.getString("outside"));
-        in = Integer.parseInt(b.getString("inside"));
+        out = b.getInt("outside");
+        in = b.getInt("inside");
         interests = b.getString("Interests");
-
     }
 
-    protected void submitData(View view) {
+    public void submitData(View view) {
         Intent i = new Intent(this, TrainingVideo.class);
 
         if(((CheckBox)findViewById(R.id.Interest8)).isChecked())
