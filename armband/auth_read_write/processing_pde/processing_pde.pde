@@ -25,7 +25,7 @@ void draw() {
   myPort.write("\n");
   if(true){
     try {
-      println("qwertyuiop" + rfidID);
+      println("ID = " + rfidID);
       PrintWriter writer = new PrintWriter("/Users/Manav/Documents/codeforgood_part2/team-3/armband/auth_read_write/processing_pde/id.txt", "UTF-8");
       writer.println(rfidID);
       writer.close();

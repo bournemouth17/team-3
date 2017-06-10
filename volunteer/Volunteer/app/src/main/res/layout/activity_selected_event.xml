@@ -27,28 +27,37 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/button"
                 android:onClick="backToMap"
-                android:text="Back to Map" />
+                android:text="Back to Map"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/button"
                 android:onClick="registerDetails"
-                android:text="Register Details" />
+                android:text="Register Details"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
 

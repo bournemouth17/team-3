@@ -17,21 +17,35 @@
             android:id="@+id/quizResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/retryQuiz"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:onClick="retryQuiz"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+
             android:text="Retry Quiz" />
 
         <Button
             android:id="@+id/finishQuiz"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
             android:onClick="continuePage"
-            android:text="Continue" />
+            android:padding="10dp"
+            android:text="Continue"
+
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

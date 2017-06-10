@@ -14,11 +14,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void goToMaps(View view){
-        startActivity(new Intent(this, UserIDEnd.class));
+    public void Map(View view){
+        startActivity(new Intent(this, MapsActivity.class));
     }
 
-    public void goToPReg(View view){
-        startActivity(new Intent(this, PersonalRegActivity.class));
-    }
+
 }

@@ -36,19 +36,28 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        
+        
 
         try {
+          System.out.println("Value = " + value);
             String link = "http://kkmonlee.com/codeforgood/checkout.php?id=" + value;
             String results = doHttpUrlConnectionAction(link);
             System.out.println(results);
             
-           PrintWriter writer = new PrintWriter("/Users/Manav/Documents/codeforgood_part2/team-3/armband/auth_read_write/processing_pde/id.txt", "UTF-8");
-           writer.println("");
-           writer.close();
+          
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+          try {
+             PrintWriter writer = new PrintWriter("/Users/Manav/Documents/codeforgood_part2/team-3/armband/auth_read_write/processing_pde/id.txt", "UTF-8");
+             writer.println("");
+             writer.close();
+          } catch (FileNotFoundException|UnsupportedEncodingException e){
+            e.printStackTrace();
         }
+    }
     }
 
     private String doHttpUrlConnectionAction(String desired) throws Exception {
@@ -56,23 +65,28 @@ public class Main {
         BufferedReader reader = null;
         StringBuilder sb;
 
-        try {
+        try { //<>//
             url = new URL(desired);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-             connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
+             //connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
 
             connection.setRequestMethod("GET");
 
             connection.setReadTimeout(15*1000);
             connection.connect();
-
+  
+      int responseCode = connection.getResponseCode();
+    System.out.println("\nSending 'GET' request to URL : " + url);
+    System.out.println("Response Code : " + responseCode);
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             sb = new StringBuilder();
+            
 
             String line = null;
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
             }
+                     System.out.println(sb.toString());
             return sb.toString();
         } catch (Exception e) {
             e.printStackTrace();

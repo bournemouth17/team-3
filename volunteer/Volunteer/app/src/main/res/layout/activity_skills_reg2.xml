@@ -1,150 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
     tools:context="rubicon.volunteer.PersonalRegActivity">
 
-    <TableLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mapping Routes" />
 
-            <CheckBox
-                android:id="@+id/Interest8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mapping Routes" />
-        </TableRow>
+        <CheckBox
+            android:id="@+id/Interest9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transporting Supplies/Equipment" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading/Unloading Vehicles" />
 
-            <CheckBox
-                android:id="@+id/Interest9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Transporting Supplies/Equipment" />
-        </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Packing Boxes" />
 
-            <CheckBox
-                android:id="@+id/Interest10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loading/Unloading Vehicles" />
-        </TableRow>
+        <CheckBox
+            android:id="@+id/Interest12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distributing Supplies" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Making Refreshments" />
 
-            <CheckBox
-                android:id="@+id/Interest11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Packing Boxes" />
-        </TableRow>
+        <CheckBox
+            android:id="@+id/Interest14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Staffing Feeding Stations for Responders" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cleaning Kit and Equipment" />
 
-            <CheckBox
-                android:id="@+id/Interest12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Distributing Supplies" />
-        </TableRow>
+        <CheckBox
+            android:id="@+id/Interest16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Debris Clean Up" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <CheckBox
+            android:id="@+id/Interest17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Helping with Sandbags" />
 
-            <CheckBox
-                android:id="@+id/Interest13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Making Refreshments" />
-        </TableRow>
+        <CheckBox
+            android:id="@+id/Interest18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assisting Other Agencies as Required" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnSubmitInterests2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="submitData"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
 
-            <CheckBox
-                android:id="@+id/Interest14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Staffing Feeding Stations for Responders" />
-        </TableRow>
+            android:text="Submit" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:id="@+id/Interest15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cleaning Kit and Equipment" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:id="@+id/Interest16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Debris Clean Up" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:id="@+id/Interest17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Helping with Sandbags" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:id="@+id/Interest18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assisting Other Agencies as Required" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnSubmitInterests2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="submitData"
-                android:text="Submit" />
-        </TableRow>
-
-    </TableLayout>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
