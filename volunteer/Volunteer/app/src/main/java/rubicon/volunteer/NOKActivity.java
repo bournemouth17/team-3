@@ -55,8 +55,8 @@ public class NOKActivity extends AppCompatActivity{
         else{
             ((EditText)findViewById(R.id.fName)).getText().toString();
             DBHandler db = new DBHandler();
-            int userID = db.insertData(fName,sName,pName,age,gender,email,phoneNo,Address1,Address2,PostCode,((EditText)findViewById(R.id.NOKName)).getText().toString(),((EditText)findViewById(R.id.relation)).getText().toString(),((EditText)findViewById(R.id.Phone)).getText().toString());
-
+            int userID = db.insertData(fName, sName, pName, age, gender, email, phoneNo, Address1, Address2, PostCode, ((EditText)findViewById(R.id.NOKName)).getText().toString(), ((EditText)findViewById(R.id.relation)).getText().toString(), ((EditText)findViewById(R.id.Phone)).getText().toString());
+            i.putExtra("userID", userID);
             startActivity(i);
         }
     }

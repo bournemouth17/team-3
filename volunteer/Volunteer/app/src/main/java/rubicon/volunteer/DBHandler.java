@@ -82,7 +82,7 @@ public class DBHandler {
         return events;
     }
 
-    public int insertData(final String fn, final String ln, final String ka, final int age, final String gen, final String eml, final String no,final String ad1, final String ad2, final String pc) {
+    public int insertData(final String fn, final String ln, final String ka, final int age, final String gen, final String eml, final String no,final String ad1, final String ad2, final String pc, final String nname, final String nrel, final String nnum) {
         final ArrayList<Integer> a= new ArrayList<>();
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -92,7 +92,7 @@ public class DBHandler {
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection(url, "kkmonlee_insert", "seatspace");
                     Statement statement = conn.createStatement();
-                    String query = "INSERT INTO Volunteers(Forename, Lastname, KnownAs, Age, Gender, Email, PhoneNumber, Address1, Address2, Postcode) VALUES ";
+                    String query = "INSERT INTO Volunteers(Forename, Lastname, KnownAs, Age, Gender, Email, PhoneNumber, Address1, Address2, Postcode, NOKName, NOKRelation, NOKNumber) VALUES ";
                     query += "(";
                     query += "\"" + fn + "\", ";
                     query += "\"" + ln + "\", ";
@@ -103,7 +103,10 @@ public class DBHandler {
                     query += "\"" + no + "\", ";
                     query += "\"" + ad1 + "\", ";
                     query += "\"" + ad2 + "\", ";
-                    query += "\"" + pc + "\"";
+                    query += "\"" + pc + "\", ";
+                    query += "\"" + nname + "\", ";
+                    query += "\"" + nrel + "\", ";
+                    query += "\"" + nnum + "\"";
                     query += ")";
                     statement.execute(query);
                     //ResultSet rs = statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
