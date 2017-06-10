@@ -46,18 +46,28 @@ public class PersonalReg2Activity extends AppCompatActivity{
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+
         else{
-            i.putExtra("fName", fName);
-            i.putExtra("sName", sName);
-            i.putExtra("pName", pName);
-            i.putExtra("age", age);
-            i.putExtra("gender", gender);
-            i.putExtra("email", ((EditText)findViewById(R.id.email)).getText().toString());
-            i.putExtra("phone", ((EditText)findViewById(R.id.phoneNo)).getText().toString());
-            i.putExtra("address1", ((EditText)findViewById(R.id.Address1)).getText().toString());
-            i.putExtra("address2", ((EditText)findViewById(R.id.Address2)).getText().toString());
-            i.putExtra("postcode", ((EditText)findViewById(R.id.PostCode)).getText().toString());
-            startActivity(i);
+            if(/*email is wrong || */ ((EditText)findViewById(R.id.phoneNo)).getText().toString().length() != 11){
+                Context context = getApplicationContext();
+                CharSequence text = "Invalid Fields";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+            else {
+                i.putExtra("fName", fName);
+                i.putExtra("sName", sName);
+                i.putExtra("pName", pName);
+                i.putExtra("age", age);
+                i.putExtra("gender", gender);
+                i.putExtra("email", ((EditText)findViewById(R.id.email)).getText().toString());
+                i.putExtra("phone", ((EditText)findViewById(R.id.phoneNo)).getText().toString());
+                i.putExtra("address1", ((EditText)findViewById(R.id.Address1)).getText().toString());
+                i.putExtra("address2", ((EditText)findViewById(R.id.Address2)).getText().toString());
+                i.putExtra("postcode", ((EditText)findViewById(R.id.PostCode)).getText().toString());
+                startActivity(i);
+            }
         }
     }
 

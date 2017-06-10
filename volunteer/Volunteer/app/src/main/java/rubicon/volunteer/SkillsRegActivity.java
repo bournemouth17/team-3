@@ -109,7 +109,7 @@ public class SkillsRegActivity extends AppCompatActivity{
             }
             else {
                 Context context = getApplicationContext();
-                CharSequence text = "Empty Fields";
+                CharSequence text = "Empty Choice";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
@@ -118,7 +118,7 @@ public class SkillsRegActivity extends AppCompatActivity{
         }
         else {
             Context context = getApplicationContext();
-            CharSequence text = "Empty Fields";
+            CharSequence text = "Empty Choice";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();

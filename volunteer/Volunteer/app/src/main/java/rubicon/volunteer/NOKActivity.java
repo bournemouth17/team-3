@@ -21,6 +21,8 @@ public class NOKActivity extends AppCompatActivity{
     String Address2;
     String PostCode;
 
+    String regx = "^\\p{L}+[\\p{L}\\p{Z}\\p{P}]{0,}";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,15 @@ public class NOKActivity extends AppCompatActivity{
             toast.show();
         }
         else{
-            DBHandler db = new DBHandler();
-            int userID = db.insertData(fName, sName, pName, age, gender, email, phoneNo, Address1, Address2, PostCode, ((EditText)findViewById(R.id.NOKName)).getText().toString(), ((EditText)findViewById(R.id.relation)).getText().toString(), ((EditText)findViewById(R.id.Phone)).getText().toString());
-            i.putExtra("userID", userID);
-            startActivity(i);
+            if(!((EditText)findViewById(R.id.NOKName)).getText().toString().matches(regx) || !((EditText)findViewById(R.id.relation)).getText().toString().matches(regx) || ((EditText)findViewById(R.id.Phone)).getText().toString().length() != 11){
+
+            }
+            else{
+                DBHandler db = new DBHandler();
+                int userID = db.insertData(fName, sName, pName, age, gender, email, phoneNo, Address1, Address2, PostCode, ((EditText)findViewById(R.id.NOKName)).getText().toString(), ((EditText)findViewById(R.id.relation)).getText().toString(), ((EditText)findViewById(R.id.Phone)).getText().toString());
+                i.putExtra("userID", userID);
+                startActivity(i);
+            }
         }
     }
 }
