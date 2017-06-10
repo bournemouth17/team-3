@@ -29,6 +29,10 @@ public class SkillsReg2Activity extends AppCompatActivity{
     protected void submitData(View view) {
         Intent i = new Intent(this, TrainingVideo.class);
 
+        if(((CheckBox)findViewById(R.id.Interest8)).isChecked())
+            interests += "1";
+        else
+            interests += "0";
         if(((CheckBox)findViewById(R.id.Interest9)).isChecked())
             interests += "1";
         else

@@ -28,7 +28,7 @@ public class SkillsRegActivity extends AppCompatActivity{
         userID = b.getInt("userID");
     }
 
-    protected void submitData(View view) {
+    public void submitData(View view) {
 
         RadioGroup radioOutsideGroup = ((RadioGroup)findViewById(R.id.radioGroup1));
         int radioButtonID = radioOutsideGroup.getCheckedRadioButtonId();
@@ -100,10 +100,6 @@ public class SkillsRegActivity extends AppCompatActivity{
             else
                 interests += "0";
             if(((CheckBox)findViewById(R.id.Interest7)).isChecked())
-                interests += "1";
-            else
-                interests += "0";
-            if(((CheckBox)findViewById(R.id.Interest8)).isChecked())
                 interests += "1";
             else
                 interests += "0";

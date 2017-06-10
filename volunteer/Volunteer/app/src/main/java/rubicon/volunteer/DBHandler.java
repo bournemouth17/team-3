@@ -106,8 +106,8 @@ public class DBHandler {
                     query += "\"" + pc + "\"";
                     query += ")";
                     statement.execute(query);
-                    ResultSet rs = statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
-                    a.add(rs.getInt(1));
+                    //ResultSet rs = statement.executeQuery("SELECT MAX(UserID) FROM Volunteers");
+                    a.add(1);
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -115,7 +115,7 @@ public class DBHandler {
         });
         thread.start();
         while(a.size()== 0){
-
+            System.out.print("");
         }
         return a.get(0);
     }
